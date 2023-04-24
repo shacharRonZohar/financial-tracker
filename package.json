@@ -8,7 +8,9 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "nuxt typecheck",
-    "start": "NODE_ENV=production node .output/server/index.mjs"
+    "start": "NODE_ENV=production node .output/server/index.mjs",
+    "prisma:generate": "npx prisma generate",
+    "poststart": "npx prisma generate"
   },
   "devDependencies": {
     "prisma": "^4.11.0",
