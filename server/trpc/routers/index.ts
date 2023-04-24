@@ -1,7 +1,10 @@
 import {z} from 'zod'
 import {publicProcedure, router} from '../trpc'
 
+import {monthRouter} from './month'
+
 export const appRouter = router({
+  month: monthRouter,
   hello: publicProcedure
     .input(
       z.object({
@@ -14,12 +17,6 @@ export const appRouter = router({
         time: new Date(),
       }
     }),
-  // ,
-  prisma: publicProcedure.query(async ({ctx}) => {
-    const {prisma} = ctx
-    const users = await prisma.example.findMany()
-    return users
-  }),
 })
 
 // export type definition of API
