@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["@nuxtjs/eslint-config-typescript", "plugin:nuxt/recommended", "plugin:prettier/recommended", "prettier"],
+  "overrides": [
+    {
+      "files": ["./server/**/*.ts"],
+      "rules": {
+        "no-console": [
+          "error",
+          {
+            "allow": ["info", "warn", "trace", "error"]
+          }
+        ]
+      }
+    }
+  ]
+}
