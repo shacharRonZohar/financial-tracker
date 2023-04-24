@@ -28,24 +28,6 @@
           </a>
         </p>
       </div>
-      <div class="card auth__card">
-        <div class="card__body">
-          <h2 class="card__title">
-            Authentication
-          </h2>
-          <p>
-            Nuxt user authentication and sessions through nuxt-auth. nuxt-auth wraps NextAuth.js to offer the reliability & convenience of a 12k star library to the nuxt 3 ecosystem with a native developer experience (DX)
-          </p>
-        </div>
-        <p class="card__action">
-          <a class="card__link" href="https://sidebase.io/nuxt-auth/getting-started" target="_blank">
-            Read documentation
-          </a>
-          <a class="card__link" href="/protected" target="_blank">
-            See example
-          </a>
-        </p>
-      </div>
       <div class="card trpc__card">
         <div class="card__body">
           <h2 class="card__title">
@@ -193,6 +175,5 @@
   }
 
     .prisma__card { background: radial-gradient(#3fbafe, #5A67D8FF); }
-    .auth__card { background: radial-gradient(#0FCF97, #0B9A71); }
     .trpc__card { background: radial-gradient(#a07ccf, #926dc2); }
 </style>

@@ -5,9 +5,6 @@ export default defineNuxtConfig({
       'trpc-nuxt'
     ]
   },
-  modules: [
-    '@sidebase/nuxt-auth'
-  ],
   typescript: {
     shim: false
   }

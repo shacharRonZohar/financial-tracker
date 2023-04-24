@@ -6,7 +6,6 @@ generator client {
 }
 
 datasource db {
-  // NOTE: You probably want to change this to another database later on
   provider = "postgresql"
 
   // This value is read from the .env file.

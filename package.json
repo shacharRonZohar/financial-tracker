@@ -8,13 +8,9 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "nuxt typecheck",
-    "start": "NODE_ENV=production node .output/server/index.mjs",
-    "prisma:generate": "npx prisma generate",
-    "poststart": "npx prisma generate",
-    "prisma": "npx prisma db push"
+    "start": "NODE_ENV=production node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@sidebase/nuxt-auth": "^0.4.3",
     "prisma": "^4.11.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.11.18",
@@ -29,7 +25,6 @@
     "trpc-nuxt": "^0.7.0",
     "@trpc/client": "^10.12.0",
     "@trpc/server": "^10.12.0",
-    "next-auth": "^4.18.8",
     "@prisma/client": "^4.11.0"
   }
 }
