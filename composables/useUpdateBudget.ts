@@ -9,7 +9,7 @@ export function useUpdateBudget({inputId}: UseUpdateBudgetOptions) {
   const id = ref(inputId)
 
   function updateBudget(budget: number) {
-    return useAsyncData(() => $client.month.updateBudget.mutate({id: id.value, budget}))
+    return useAsyncData(() => $client.month.updateIncome.mutate({id: id.value, budget}))
   }
 
   return {

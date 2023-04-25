@@ -32,6 +32,9 @@ export const monthRouter = router({
           year: input.year,
           month: input.monthNum,
         },
+        include: {
+          expenses: true,
+        },
       })
     }),
   create: publicProcedure
@@ -49,7 +52,7 @@ export const monthRouter = router({
         },
       })
     }),
-  updateBudget: publicProcedure
+  updateIncome: publicProcedure
     .input(
       z.object({
         id: z.string().cuid(),

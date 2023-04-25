@@ -21,3 +21,9 @@ export type MapToInput<T extends StringIndex> = {
 }
 
 export type MapToMaybeRefInputs<T extends StringIndex> = MapToMaybeRef<MapToInput<T>>
+
+export type ExtractComponentProps<TComponent> = TComponent extends new () => {
+  $props: infer P
+}
+  ? P
+  : never
