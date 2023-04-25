@@ -13,5 +13,5 @@ export type MonthGetByNumberOutput = RouterOutputs['month']['getByNumber']
 export type MonthCreateInput = RouterInputs['month']['create']
 export type MonthCreateOutput = RouterOutputs['month']['create']
 
-export type MonthUpdateBudgetInput = RouterInputs['month']['updateBudget']
-export type MonthUpdateBudgetOutput = RouterOutputs['month']['updateBudget']
+export type MonthUpdateBudgetInput = RouterInputs['month']['updateIncome']
+export type MonthUpdateBudgetOutput = RouterOutputs['month']['updateIncome']

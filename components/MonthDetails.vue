@@ -29,7 +29,6 @@ const income = computed({
 })
 
 const balance = computed(() => {
-    console.log(props.monthData)
     return props.monthData.income - (props.monthData.expenses?.reduce((acc, cur) => acc + cur.amount, 0) ?? 0)
 })
 

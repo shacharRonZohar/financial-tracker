@@ -55,7 +55,7 @@ export const monthRouter = router({
   updateIncome: publicProcedure
     .input(
       z.object({
-        id: z.string().cuid(),
+        id: z.string(),
         income: z.number().int().min(0),
       }),
     )
