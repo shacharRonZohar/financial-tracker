@@ -15,6 +15,5 @@ const route = useRoute('month')
 
 const year = computed(() => +(route.query?.year || new Date().getFullYear()))
 
-const { data: months } = useGetMonths({ year })
-
+const month = computed(() => +(route.query?.month || new Date().getMonth() + 1))
 </script>
