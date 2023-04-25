@@ -22,12 +22,12 @@ datasource db {
 //   // userId    String
 // }
 
-model Month {
+model MonthData {
   id        String    @id @default(uuid())
   month     Int
   budget    Float     @default(0)
   expenses  Expense[]
-  updatedAt DateTime  @updatedAt
+  updatedAt DateTime  @updatedAt @default(now())
   createdAt DateTime  @default(now())
   year      Int
   // year           Year      @relation(fields: [yearId], references: [id])
@@ -41,7 +41,7 @@ model Expense {
   monthId   String
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
-  Month     Month    @relation(fields: [monthId], references: [id])
+  MonthData     MonthData    @relation(fields: [monthId], references: [id])
 }
 
 // model User {

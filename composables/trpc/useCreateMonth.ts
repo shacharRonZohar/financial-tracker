@@ -1,18 +1,12 @@
-import {MaybeRef} from '~~/models/utils'
+import {MonthCreateInput} from '~/models/trpc'
+import {MapToMaybeRefInputs, MaybeRef} from '~~/models/utils'
 
-interface UseCreateMonthOptions {
-  yearInput: MaybeRef<number>
-}
+type UseCreateMonthOptions = MapToMaybeRefInputs<MonthCreateInput>
 
-export function useCreateMonth({yearInput}: UseCreateMonthOptions) {
+export function useCreateMonth({yearInput, monthNumInput}: UseCreateMonthOptions) {
   const {$client} = useNuxtApp()
   const year = ref(yearInput)
+  const monthNum = ref(monthNumInput)
 
-  function createMonth(month: number) {
-    return useAsyncData(() => $client.month.create.mutate({year: year.value, month}))
-  }
-
-  return {
-    createMonth,
-  }
+  return useAsyncData(() => $client.month.create.mutate({year: year.value, monthNum: monthNum.value}))
 }

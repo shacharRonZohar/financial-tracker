@@ -4,17 +4,17 @@ import type {MapToMaybeRefInputs, MaybeRef} from '~/models/utils'
 
 type UseGetMonthByNumberOptions = MapToMaybeRefInputs<MonthGetByNumberInput>
 
-export function useGetMonthByNumber({yearInput, monthInput}: UseGetMonthByNumberOptions) {
+export function useGetMonthByNumber({yearInput, monthNumInput}: UseGetMonthByNumberOptions) {
   const {$client} = useNuxtApp()
   const year = ref(yearInput)
-  const month = ref(monthInput)
+  const monthNum = ref(monthNumInput)
 
   return $client.month.getByNumber.useQuery(
-    {year: year.value, month: month.value},
+    {year: year.value, monthNum: monthNum.value},
     {
       lazy: true,
       server: false,
-      watch: [year, month],
+      watch: [year, monthNum],
     },
   )
 }

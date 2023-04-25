@@ -10,7 +10,7 @@ export const monthRouter = router({
       }),
     )
     .query(({input, ctx}) => {
-      return ctx.prisma.month.findMany({
+      return ctx.prisma.monthData.findMany({
         where: {
           year: input.year,
         },
@@ -20,14 +20,14 @@ export const monthRouter = router({
     .input(
       z.object({
         year: z.number().int().min(0).max(9999),
-        month: z.number().int().min(1).max(12),
+        monthNum: z.number().int().min(1).max(12),
       }),
     )
     .query(({input, ctx}) => {
-      return ctx.prisma.month.findFirst({
+      return ctx.prisma.monthData.findFirst({
         where: {
           year: input.year,
-          month: input.month,
+          month: input.monthNum,
         },
       })
     }),
@@ -35,14 +35,14 @@ export const monthRouter = router({
     .input(
       z.object({
         year: z.number().int().min(0).max(9999),
-        month: z.number().int().min(1).max(12),
+        monthNum: z.number().int().min(1).max(12),
       }),
     )
     .mutation(({input, ctx}) => {
-      return ctx.prisma.month.create({
+      return ctx.prisma.monthData.create({
         data: {
           year: input.year,
-          month: input.month,
+          month: input.monthNum,
         },
       })
     }),
@@ -54,7 +54,7 @@ export const monthRouter = router({
       }),
     )
     .mutation(({input, ctx}) => {
-      return ctx.prisma.month.update({
+      return ctx.prisma.monthData.update({
         where: {
           id: input.id,
         },

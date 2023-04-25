@@ -2,7 +2,7 @@
   <main>
     <YearSelector />
     <MonthSelector />
-    <MonthOverview />
+    <MonthOverview :year="year" :month="month" />
   </main>
 </template>
 
