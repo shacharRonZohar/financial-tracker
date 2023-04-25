@@ -3,19 +3,33 @@ import {z} from 'zod'
 import {publicProcedure, router} from '../trpc'
 
 export const monthRouter = router({
-  get: publicProcedure
+  getAll: publicProcedure
     .input(
       z.object({
         year: z.number().int().min(0).max(9999),
       }),
     )
-    .query(({input,ctx}) => {
+    .query(({input, ctx}) => {
       return ctx.prisma.month.findMany({
         where: {
           year: input.year,
         },
       })
-
+    }),
+  getByNumber: publicProcedure
+    .input(
+      z.object({
+        year: z.number().int().min(0).max(9999),
+        month: z.number().int().min(1).max(12),
+      }),
+    )
+    .query(({input, ctx}) => {
+      return ctx.prisma.month.findFirst({
+        where: {
+          year: input.year,
+          month: input.month,
+        },
+      })
     }),
   create: publicProcedure
     .input(
@@ -24,7 +38,7 @@ export const monthRouter = router({
         month: z.number().int().min(1).max(12),
       }),
     )
-    .mutation(({input,ctx}) => {
+    .mutation(({input, ctx}) => {
       return ctx.prisma.month.create({
         data: {
           year: input.year,
@@ -38,7 +52,8 @@ export const monthRouter = router({
         id: z.string().cuid(),
         budget: z.number().int().min(0),
       }),
-    ).mutation(({input,ctx}) => {
+    )
+    .mutation(({input, ctx}) => {
       return ctx.prisma.month.update({
         where: {
           id: input.id,
@@ -47,7 +62,5 @@ export const monthRouter = router({
           budget: input.budget,
         },
       })
-    })
-
-
+    }),
 })

@@ -4,7 +4,6 @@ import {publicProcedure, router} from '../trpc'
 import {monthRouter} from './month'
 
 export const appRouter = router({
-
   month: monthRouter,
 })
 

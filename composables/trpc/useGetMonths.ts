@@ -1,12 +1,18 @@
-import {MaybeRef} from '~~/models/utils'
+import type {MonthGetAllInput} from '~/models/trpc'
+import type {MapToMaybeRefInputs} from '~~/models/utils'
 
-export function useGetMonths({year}: {year: MaybeRef<number>}) {
+type UseGetMonthsOptions = MapToMaybeRefInputs<MonthGetAllInput>
+
+export function useGetMonths({yearInput}: UseGetMonthsOptions) {
   const {$client} = useNuxtApp()
-  const isYearRef = isRef(year)
+  const year = ref(yearInput)
 
-  return useAsyncData(() => $client.month.get.query({year: isYearRef ? year.value : year}), {
-    lazy: true,
-    server: false,
-    watch: isYearRef ? [year] : [],
-  })
+  return $client.month.getAll.useQuery(
+    {year: year.value},
+    {
+      lazy: true,
+      server: false,
+      watch: [year],
+    },
+  )
 }

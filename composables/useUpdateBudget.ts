@@ -1,11 +1,15 @@
-import { MaybeRef } from '~~/models/utils'
+import {MaybeRef} from '~~/models/utils'
 
-export function useUpdateBudget({id}:{id:MaybeRef<string>}) {
+interface UseUpdateBudgetOptions {
+  inputId: MaybeRef<string>
+}
+
+export function useUpdateBudget({inputId}: UseUpdateBudgetOptions) {
   const {$client} = useNuxtApp()
-  const isIdRef = isRef(id)
+  const id = ref(inputId)
 
-  function updateBudget(budget:number) {
-    return useAsyncData(()=>$client.month.updateBudget.mutate({id:isIdRef? id.value : id,budget}))
+  function updateBudget(budget: number) {
+    return useAsyncData(() => $client.month.updateBudget.mutate({id: id.value, budget}))
   }
 
   return {
