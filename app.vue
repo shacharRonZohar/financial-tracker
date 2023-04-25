@@ -1,11 +1,10 @@
 <template>
   <div class="">
-    <MainHeader/>
+    <MainHeader />
     <NuxtPage />
   </div>
 </template>
 
 <script setup lang="ts">
 import MainHeader from '~/components/MainHeader.vue'
-
 </script>
