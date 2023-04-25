@@ -1,17 +1,17 @@
 <template>
     <div>
-        MonthDetails
-        {{ monthName }}
-        {{ monthData }}
+        <h1>{{ monthName }}</h1>
+        <p>Income: {{ props.monthData.income }}</p>
+        <p>Expenses: {{ props.monthData.expenses || 'No expenses yet :)' }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Month } from '@prisma/client'
+import { MonthData } from '~/models/MonthData'
 
 
 interface MonthDetailsProps {
-    monthData: Month | null
+    monthData: MonthData
 }
 
 const props = defineProps<MonthDetailsProps>()

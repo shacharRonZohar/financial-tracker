@@ -15,6 +15,7 @@ interface MonthOverviewProps {
     year: number
     monthNum: number
 }
+
 const props = defineProps<MonthOverviewProps>()
 
 const { data: month, error, pending, execute } = useGetMonthByNumber({ yearInput: props.year, monthNumInput: props.monthNum })
