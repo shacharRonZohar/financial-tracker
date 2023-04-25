@@ -4,13 +4,11 @@ import {defineComponent, h, VNode} from 'vue'
 import BaseDataLoading from '~/components/DataLoading/BaseDataLoading.vue'
 import {ExtractComponentProps} from '~/models/utils'
 
-type NonGenericProps = Omit<ExtractComponentProps<typeof BaseDataLoading>, 'error' | 'pending' | 'execute'>
+type NonGenericProps = Omit<ExtractComponentProps<typeof BaseDataLoading>, 'data'>
 
 interface GenericProps<TValue> extends NonGenericProps {
   data: TValue
 }
-
-// interface
 
 export function useGenericDataLoading<TValue = unknown>() {
   const wrapper = defineComponent((props: GenericProps<TValue>, {slots}) => {
@@ -24,7 +22,7 @@ export function useGenericDataLoading<TValue = unknown>() {
   return wrapper as typeof wrapper & {
     new (): {
       $slots: {
-        default: (test: TValue) => VNode
+        default: (data: GenericProps<TValue>) => VNode
       }
     }
   }

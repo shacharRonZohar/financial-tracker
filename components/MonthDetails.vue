@@ -1,18 +1,20 @@
 <template>
     <div>
+
         <h1>{{ monthName }}</h1>
         <p>Income: <input type="number" v-model="income"></p>
-        <p>Expenses: {{ props.monthData.expenses || 'No expenses yet :)' }}</p>
+        <p>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</p>
         <p>Balance: {{ balance }}</p>
+        {{ monthData }}
     </div>
 </template>
 
 <script setup lang="ts">
-import { MonthData } from '~/models/MonthData'
+import { MonthDataWithExpenses } from '~/models/MonthData'
 
 
 interface MonthDetailsProps {
-    monthData: MonthData
+    monthData: MonthDataWithExpenses
 }
 const props = defineProps<MonthDetailsProps>()
 
@@ -27,6 +29,7 @@ const income = computed({
 })
 
 const balance = computed(() => {
+    console.log(props.monthData)
     return props.monthData.income - (props.monthData.expenses?.reduce((acc, cur) => acc + cur.amount, 0) ?? 0)
 })
 

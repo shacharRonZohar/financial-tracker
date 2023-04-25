@@ -1,7 +1,7 @@
 <template>
     <div>
         <TypedDataLoading cmp-name="MonthDetails" :error="error" :pending="pending" :execute="execute" :data="month"
-            v-slot="data">
+            v-slot="{ data }">
             <!-- I used the null assertion operator here since data can not be null at the point where the slot renders, the only reason TS dosen't know this
             is because I used a hack to get around the fact that Vue 3 doesn't support generics in setup() yet.-->
             <MonthDetails :month-data="data!" />
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 
-import { MonthData } from '~/models/MonthData'
+import { MonthDataWithExpenses } from '~/models/MonthData'
 import { useGetMonthByNumber } from '~/composables/trpc/useGetMonthByNumber'
 
 // interface DataLoadingProps {
@@ -22,7 +22,7 @@ import { useGetMonthByNumber } from '~/composables/trpc/useGetMonthByNumber'
 //     execute: () => any
 // }
 
-const TypedDataLoading = useGenericDataLoading<MonthData | null>()
+const TypedDataLoading = useGenericDataLoading<MonthDataWithExpenses | null>()
 
 interface MonthOverviewProps {
     year: number

@@ -34,7 +34,7 @@ defineProps<DataLoadingProps>()
 //         required: true
 //     },
 //     execute: {
-//         type: Function,
+//         type: Function as PropType<() => any>,
 //         required: true
 //     }
 // })
