@@ -9,12 +9,12 @@ export function useGetMonthByNumber({yearInput, monthInput}: UseGetMonthByNumber
   const year = ref(yearInput)
   const month = ref(monthInput)
 
-  return (
-    $client.month.getByNumber.useQuery({year: year.value, month: month.value}),
+  return $client.month.getByNumber.useQuery(
+    {year: year.value, month: month.value},
     {
       lazy: true,
       server: false,
       watch: [year, month],
-    }
+    },
   )
 }
