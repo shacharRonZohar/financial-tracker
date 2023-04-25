@@ -33,6 +33,9 @@ devDependencies:
   nuxt:
     specifier: ^3.2.3
     version: 3.2.3(@types/node@18.11.18)(eslint@8.33.0)(typescript@4.9.5)(vue-tsc@1.0.24)
+  nuxt-typed-router:
+    specifier: ^3.1.5
+    version: 3.1.5
   prisma:
     specifier: ^4.11.0
     version: 4.11.0
@@ -4156,6 +4159,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: true
+
   /lodash._reinterpolate@3.0.0:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
     dev: true
@@ -4376,6 +4383,12 @@ packages:
 
   /mkdirp@1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: true
+
+  /mkdirp@3.0.1:
+    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
     engines: {node: '>=10'}
     hasBin: true
     dev: true
@@ -4614,6 +4627,23 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /nuxt-typed-router@3.1.5:
+    resolution: {integrity: sha512-wnI66Or/4bTYZVKpKpQwH5ffeqJuC+sBEc3Bco18iXLb7U1ywh+A7iSMnPDyxoz3BW1QXh4ErlRVXBYU87ORzg==}
+    dependencies:
+      '@nuxt/kit': 3.4.2
+      chalk: 5.2.0
+      defu: 6.1.2
+      lodash-es: 4.17.21
+      log-symbols: 5.1.0
+      mkdirp: 3.0.1
+      nanoid: 4.0.2
+      pathe: 1.1.0
+      prettier: 2.8.7
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /nuxt@3.2.3(@types/node@18.11.18)(eslint@8.33.0)(typescript@4.9.5)(vue-tsc@1.0.24):
@@ -5268,6 +5298,12 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier@2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /pretty-bytes@6.1.0:
