@@ -12,25 +12,26 @@ datasource db {
   url = env("DATABASE_URL")
 }
 
-model Year {
-  id        String   @id @default(uuid())
-  year      Int
-  months    Month[]
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
-  // user      User     @relation(fields: [userId], references: [id])
-  // userId    String
-}
+// model Year {
+//   id        String   @id @default(uuid())
+//   year      Int
+//   months    Month[]
+//   updatedAt DateTime @updatedAt
+//   createdAt DateTime @default(now())
+//   // user      User     @relation(fields: [userId], references: [id])
+//   // userId    String
+// }
 
 model Month {
-  id             String    @id @default(uuid())
-  month          Int
-  startingBudget Float     @default(0)
-  expenses       Expense[]
-  updatedAt      DateTime  @updatedAt
-  createdAt      DateTime  @default(now())
-  year           Year      @relation(fields: [yearId], references: [id])
-  yearId         String
+  id        String    @id @default(uuid())
+  month     Int
+  budget    Float     @default(0)
+  expenses  Expense[]
+  updatedAt DateTime  @updatedAt
+  createdAt DateTime  @default(now())
+  year      Int
+  // year           Year      @relation(fields: [yearId], references: [id])
+  // yearId         String
 }
 
 model Expense {
