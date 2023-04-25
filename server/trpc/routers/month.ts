@@ -14,6 +14,9 @@ export const monthRouter = router({
         where: {
           year: input.year,
         },
+        include: {
+          expenses: true,
+        },
       })
     }),
   getByNumber: publicProcedure
@@ -50,7 +53,7 @@ export const monthRouter = router({
     .input(
       z.object({
         id: z.string().cuid(),
-        budget: z.number().int().min(0),
+        income: z.number().int().min(0),
       }),
     )
     .mutation(({input, ctx}) => {
@@ -59,7 +62,7 @@ export const monthRouter = router({
           id: input.id,
         },
         data: {
-          budget: input.budget,
+          income: input.income,
         },
       })
     }),

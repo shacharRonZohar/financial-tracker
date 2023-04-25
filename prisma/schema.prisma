@@ -25,9 +25,9 @@ datasource db {
 model MonthData {
   id        String    @id @default(uuid())
   month     Int
-  budget    Float     @default(0)
+  income    Float     @default(0)
   expenses  Expense[]
-  updatedAt DateTime  @updatedAt @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
   createdAt DateTime  @default(now())
   year      Int
   // year           Year      @relation(fields: [yearId], references: [id])
@@ -35,13 +35,13 @@ model MonthData {
 }
 
 model Expense {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
   amount    Float
   monthId   String
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
-  MonthData     MonthData    @relation(fields: [monthId], references: [id])
+  updatedAt DateTime  @updatedAt
+  createdAt DateTime  @default(now())
+  MonthData MonthData @relation(fields: [monthId], references: [id])
 }
 
 // model User {
