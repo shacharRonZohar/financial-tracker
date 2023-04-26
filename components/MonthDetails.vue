@@ -3,9 +3,12 @@
 
         <h1>{{ monthName }}</h1>
         <p>Income: <input type="number" v-model="income"></p>
-        <p>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</p>
+        <pre>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</pre>
         <p>Balance: {{ balance }}</p>
-        {{ monthData }}
+        For Dev:
+        <pre>
+            {{ monthData }}
+        </pre>
     </div>
 </template>
 
