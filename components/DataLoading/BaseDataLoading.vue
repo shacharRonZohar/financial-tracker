@@ -19,8 +19,10 @@ defineProps({
         required: true
     },
     error: {
-        type: Object,
-        required: true
+        // type: Object,
+        validator: (value: unknown) => {
+            return typeof value === 'object' || value === null
+        },
     },
     pending: {
         type: Boolean,
