@@ -1,17 +1,16 @@
 <template>
     <div>
         <span>Had an error :c</span>
-        <button @click="retry">Press to retry</button>
+        <button @click="emit('retry')">Press to retry</button>
     </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    retry: () => any
     error: unknown
 }>()
 
-defineEmits<{
-    retry: () => any
+const emit = defineEmits<{
+    (event: 'retry'): void
 }>()
 </script>
