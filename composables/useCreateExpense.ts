@@ -1,4 +1,5 @@
 import {useMutation, useQueryClient} from '@tanstack/vue-query'
+import {MonthDataWithExpenses} from '~/models/MonthData'
 
 import type {ExpenseCreateInput, ExpenseCreateOutput} from '~/models/trpc'
 
@@ -15,7 +16,13 @@ export function useCreateExpense() {
   } = useMutation({
     mutationFn: (payload: ExpenseCreateInput) => $client.expense.create.mutate(payload),
     onSuccess: (data) => {
-      queryClient.setQueryData<ExpenseCreateOutput>(queryKey.value, data)
+      const currentData = queryClient.getQueryData<MonthDataWithExpenses>(queryKey.value)
+      if (currentData) {
+        queryClient.setQueryData<MonthDataWithExpenses>(queryKey.value, {
+          ...currentData,
+          expenses: [...currentData.expenses, data],
+        })
+      }
     },
   })
 

@@ -19,13 +19,13 @@ interface MonthDetailsProps {
 const props = defineProps<MonthDetailsProps>()
 
 interface MonthDetailsEmits {
-    (event: 'update-income', monthId: string, newIncome: number): void
+    (event: 'update-income', newIncome: number): void
 }
 const emit = defineEmits<MonthDetailsEmits>()
 
 const income = computed({
     get: () => props.monthData.income,
-    set: (value) => emit('update-income', props.monthData.id, value)
+    set: (value) => emit('update-income', value)
 })
 
 const balance = computed(() => {

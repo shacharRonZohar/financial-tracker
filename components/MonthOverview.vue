@@ -4,6 +4,9 @@
             v-slot="{ value }">
             <MonthDetails :month-data="value" @update-income="updateIncome" />
         </DataLoading>
+        <button @click="onClick">
+            Click
+        </button>
     </div>
 </template>
 
@@ -17,12 +20,29 @@ const { updateMonthIncome } = useUpdateMonthIncome({
     newIncome: income
 })
 
-const updateIncome = (newMonthId: string, newIncome: number) => {
-    monthId.value = newMonthId
+const {
+    createExpense
+} = useCreateExpense()
+
+const updateIncome = (newIncome: number) => {
     income.value = newIncome
     updateMonthIncome({
         income: newIncome
     })
 }
+
+function onClick() {
+    createExpense({
+        monthId: monthId.value,
+        amount: 100,
+        name: 'test'
+    })
+}
+
+watch(month, (newVal) => {
+    if (!newVal) return
+    monthId.value = newVal.id
+})
+
 
 </script>

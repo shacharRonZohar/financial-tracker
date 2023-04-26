@@ -3,7 +3,6 @@ import {z} from 'zod'
 import {publicProcedure, router} from '../trpc'
 
 const newExpenseSchema = z.object({
-  id: z.string(),
   name: z.string(),
   amount: z.number().int().min(0),
   monthId: z.string(),
@@ -45,6 +44,7 @@ export const expenseRouter = router({
   //     })
   //   }),
   create: publicProcedure.input(newExpenseSchema).mutation(({input, ctx}) => {
+    console.log('input', input)
     return ctx.prisma.expense.create({
       data: {
         name: input.name,
