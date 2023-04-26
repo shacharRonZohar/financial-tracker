@@ -13,30 +13,24 @@ import AppLoader from './AppLoader.vue'
 import NothingFound from './NothingFound.vue'
 
 
-interface DataLoadingProps {
-    data: PropType<unknown>
-    error: any
-    pending: boolean
-    execute: () => any
-}
-defineProps<DataLoadingProps>()
-// defineProps({
-//     data: {
-//         type: null as unknown as PropType<unknown>,
-//         required: true
-//     },
-//     error: {
-//         type: Object,
-//         required: true
-//     },
-//     pending: {
-//         type: Boolean,
-//         required: true
-//     },
-//     execute: {
-//         type: Function as PropType<() => any>,
-//         required: true
-//     }
-// })
+defineProps({
+    data: {
+        type: null as unknown as PropType<unknown>,
+        required: true
+    },
+    error: {
+        type: Object,
+        required: true
+    },
+    pending: {
+        type: Boolean,
+        required: true
+    },
+    execute: {
+        type: Function as PropType<() => any>,
+        required: true
+    }
+})
+
 
 </script>
