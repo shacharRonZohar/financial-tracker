@@ -5,10 +5,7 @@
         <p>Income: <input type="number" v-model="income"></p>
         <pre>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</pre>
         <p>Balance: {{ balance }}</p>
-        For Dev:
-        <pre>
-            {{ monthData }}
-        </pre>
+
     </div>
 </template>
 

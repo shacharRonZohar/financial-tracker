@@ -4,9 +4,6 @@
             <MonthDetails :month-data="value" @update-income="updateIncome" />
         </DataLoading>
         <FormModal :fields="fields"></FormModal>
-        <button @click="onClick">
-            Click
-        </button>
     </div>
 </template>
 
