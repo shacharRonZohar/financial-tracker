@@ -7,7 +7,6 @@ interface UseOptimisticMutationOptions<TData> {
 
 export function useOptimisticMutation<TData, TPayload>({mutationFn, queryKey}: UseOptimisticMutationOptions<TData>) {
   const queryClient = useQueryClient()
-  console.log(queryKey)
   return useMutation<TData, unknown, TPayload, {previousData: unknown}>({
     mutationFn,
     onMutate: async (payload) => {
