@@ -16,7 +16,7 @@ export function useUpdateMonthIncome({monthIdInput, newIncome}: UseUpdateMonthIn
 
   const debouncedUpdateIncome = useDebounceFn(() => {
     return $client.month.updateIncome.mutate({monthId: monthId.value, newIncome: newIncome.value})
-  }, 500)
+  }, 1000)
 
   const queryKey = ['month', 'getByNumber', {year: queryParams.value.year, monthNum: queryParams.value.monthNum}]
   const {
