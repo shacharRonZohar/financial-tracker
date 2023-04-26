@@ -8,5 +8,10 @@
 <script setup lang="ts">
 defineProps<{
     retry: () => any
+    error: unknown
+}>()
+
+defineEmits<{
+    retry: () => any
 }>()
 </script>
