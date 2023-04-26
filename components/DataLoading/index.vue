@@ -12,21 +12,26 @@ import AppError from './AppError.vue'
 import AppLoader from './AppLoader.vue'
 import NothingFound from './NothingFound.vue'
 
-defineProps({
-    data: {
-        type: Object as PropType<T>,
-        required: true
-    },
-    error: {
-        type: Object as any,
-        required: false
-    },
-    isLoading: {
-        type: Boolean,
-        required: true
-    },
+defineProps<{
+    data: T,
+    error: any,
+    isLoading: boolean
+}>()
+// defineProps({
+//     data: {
+//         type: Object as PropType<T>,
+//         required: true
+//     },
+//     error: {
+//         type: Object as any,
+//         required: false
+//     },
+//     isLoading: {
+//         type: Boolean,
+//         required: true
+//     },
 
-})
+// })
 
 const emit = defineEmits<{
     (event: 'refetch'): void

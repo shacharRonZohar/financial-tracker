@@ -19,6 +19,7 @@ import { MonthDataWithExpenses } from '~/models/MonthData'
 interface MonthDetailsProps {
     monthData: MonthDataWithExpenses
 }
+
 const props = defineProps<MonthDetailsProps>()
 
 interface MonthDetailsEmits {

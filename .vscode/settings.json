@@ -3,18 +3,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  },
-  "[js]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[ts]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "eslint.validate": ["javascript", "typescript", "vue"],
   // Tailwind Support, see https://tailwindcss.nuxt.dev/tailwind/editor-support
   "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
