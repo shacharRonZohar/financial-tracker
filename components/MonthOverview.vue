@@ -1,30 +1,25 @@
 <template>
     <div>
-        <TypedDataLoading cmp-name="MonthDetails" :error="error" :pending="pending" :execute="execute" :data="month"
-            v-slot="{ data }">
-            <!-- I used the null assertion operator here since data can not be null at the point where the slot renders,
-            the only reason TS dosen't know this is null is because I used a hack to get around the fact that Vue 3 doesn't support generics in setup() yet.-->
-            <MonthDetails :month-data="data!" @update-income="updateIncome" />
-        </TypedDataLoading>
+        <DataLoading :error="monthError" :is-pending="isLoadingMonth" :execute="refetchMonth" :data="month"
+            v-slot="{ value }">
+            <MonthDetails :month-data="value" @update-income="updateIncome" />
+        </DataLoading>
     </div>
 </template>
 
 <script setup lang="ts">
-import { MonthDataWithExpenses } from '~/models/MonthData'
+const monthId = ref('')
+const income = ref(0)
 
-const TypedDataLoading = useGenericDataLoading<MonthDataWithExpenses | null>()
+const { month, monthError, isLoadingMonth, refetchMonth } = useGetMonthByQuery()
+const { updateMonthIncome } = useUpdateMonthIncome({
+    monthIdInput: monthId,
+    newIncome: income
+})
 
-interface MonthOverviewProps {
-    year: number
-    monthNum: number
-}
-
-const props = defineProps<MonthOverviewProps>()
-
-const { data: month, error, pending, execute } = useGetMonthByNumber({ yearInput: props.year, monthNumInput: props.monthNum })
-
-const updateIncome = (monthId: string, newIncome: number) => {
-    console.log('updateIncome', monthId, newIncome)
-    useUpdateMonthIncome({ monthId, newIncome })
+const updateIncome = (newMonthId: string, newIncome: number) => {
+    monthId.value = newMonthId
+    income.value = newIncome
+    updateMonthIncome()
 }
 </script>
