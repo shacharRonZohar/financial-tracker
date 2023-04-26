@@ -2,5 +2,6 @@ import {useGetMonthByNumber} from './useGetMonthByNumber'
 
 export function useGetMonthByQuery() {
   const query = useQueryParams({routeName: 'month'})
-  return useGetMonthByNumber({yearInput: query.value.year, monthNumInput: query.value.monthNum})
+  const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
+  return useGetMonthByNumber({queryKey, yearInput: query.value.year, monthNumInput: query.value.monthNum})
 }
