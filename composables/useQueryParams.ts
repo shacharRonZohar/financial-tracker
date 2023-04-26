@@ -12,7 +12,6 @@ export function useQueryParams<TRoute extends RoutesNamesList>({routeName}: UseQ
   const defaultQueryForRoute = routeDefaultQueryMap[routeName]
 
   const query = computed<RouteDefaultQueryMap[TRoute]>(() => {
-    console.log('hi')
     if (!defaultQueryForRoute) {
       return routeQuery.value
     }

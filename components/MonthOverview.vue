@@ -20,6 +20,9 @@ const { updateMonthIncome } = useUpdateMonthIncome({
 const updateIncome = (newMonthId: string, newIncome: number) => {
     monthId.value = newMonthId
     income.value = newIncome
-    updateMonthIncome()
+    updateMonthIncome({
+        income: newIncome
+    })
 }
+
 </script>
