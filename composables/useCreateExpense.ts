@@ -1,7 +1,7 @@
 import {useMutation, useQueryClient} from '@tanstack/vue-query'
-import {MonthDataWithExpenses} from '~/models/MonthData'
+import {MonthDataWithExpenses} from '~/types/MonthData'
 
-import type {ExpenseCreateInput, ExpenseCreateOutput} from '~/models/trpc'
+import type {ExpenseCreateInput, ExpenseCreateOutput} from '~/types/trpc'
 
 export function useCreateExpense() {
   const {$client} = useNuxtApp()

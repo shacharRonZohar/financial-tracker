@@ -2,7 +2,7 @@
 
 import {defineComponent, h, VNode} from 'vue'
 import BaseDataLoading from '~/components/DataLoading/BaseDataLoading.vue'
-import {ExtractComponentProps} from '~/models/utils'
+import {ExtractComponentProps} from '~/types/utils'
 
 type NonGenericProps = Omit<ExtractComponentProps<typeof BaseDataLoading>, 'data'>
 

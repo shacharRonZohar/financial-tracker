@@ -1,5 +1,5 @@
-import type {MonthGetAllInput} from '~/models/trpc'
-import type {MapToMaybeRefInputs} from '~~/models/utils'
+import type {MonthGetAllInput} from '~/types/trpc'
+import type {MapToMaybeRefInputs} from '~/types/utils'
 
 type UseGetMonthsOptions = MapToMaybeRefInputs<MonthGetAllInput>
 

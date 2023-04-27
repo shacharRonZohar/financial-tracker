@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import z from 'zod'
-import type { FormFieldArray } from '~/models/Form'
+import type { FormFieldArray } from '~/types/Form'
 
 const fields = [
     {

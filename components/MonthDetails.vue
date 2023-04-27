@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { MonthDataWithExpenses } from '~/models/MonthData'
+import { MonthDataWithExpenses } from '~/types/MonthData'
 
 
 interface MonthDetailsProps {

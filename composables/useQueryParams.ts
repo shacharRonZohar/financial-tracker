@@ -1,6 +1,6 @@
 import type {RoutesNamesList} from '@typed-router'
 // import {TypedRouteFromName} from '~/.nuxt/typed-router/__router'
-import {routeDefaultQueryMap, type RouteDefaultQueryMap} from '~/models/routes'
+import {routeDefaultQueryMap, type RouteDefaultQueryMap} from '~/types/routes'
 // import { RoutesNamesList } from '~/.nuxt/typed-router/__routes'
 
 interface UseQueryParamsOptions<TRoute extends RoutesNamesList> {

@@ -1,6 +1,6 @@
 import {UseMutationOptions, useQuery, useQueryClient} from '@tanstack/vue-query'
-import type {MonthGetByNumberInput} from '~/models/trpc'
-import type {MapToMaybeRefInputs, MaybeRef} from '~/models/utils'
+import type {MonthGetByNumberInput} from '~/types/trpc'
+import type {MapToMaybeRefInputs, MaybeRef} from '~/types/utils'
 
 type UseGetMonthByNumberOptions = MapToMaybeRefInputs<MonthGetByNumberInput> & {
   queryKey: Ref<any[]>

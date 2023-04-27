@@ -1,6 +1,6 @@
 import {useMutation, useQueryClient} from '@tanstack/vue-query'
 import {useDebounceFn} from '@vueuse/core'
-import {MaybeRef} from '~/models/utils'
+import {MaybeRef} from '~/types/utils'
 import type {MonthData} from '@prisma/client'
 interface UseUpdateMonthIncomeOptions {
   monthIdInput: MaybeRef<string>
