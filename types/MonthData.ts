@@ -1,3 +1,3 @@
-import type {MonthGetAllOutput} from '~~/models/trpc'
+import type {MonthGetAllOutput} from '~/types/trpc'
 
 export type MonthDataWithExpenses = MonthGetAllOutput[number]
