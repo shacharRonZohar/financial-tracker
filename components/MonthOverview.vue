@@ -3,7 +3,7 @@
         <DataLoading :error="monthError" :is-loading="isLoadingMonth" :data="month" v-slot="{ value }">
             <MonthDetails :month-data="value" @update-income="updateIncome" />
         </DataLoading>
-        <FormModal :fields="fields"></FormModal>
+        <GenericFormModal :fields="fields"></GenericFormModal>
     </div>
 </template>
 
@@ -33,13 +33,7 @@ const fields = [
         placeholder: 'Email',
         // validation: z.string()
     }
-] satisfies {
-    name: string
-    type: 'text' | 'number' | 'email' | 'password' | 'date' | 'time' | 'datetime-local' | 'month' | 'week' | 'tel' | 'url'
-    label: string
-    placeholder: string
-    validation?: z.ZodTypeAny
-}[]
+] satisfies FormFieldArray
 
 const monthId = ref('')
 const income = ref(0)
