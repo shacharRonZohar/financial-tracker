@@ -3,7 +3,7 @@
         <DataLoading :error="monthError" :is-loading="isLoadingMonth" :data="month" v-slot="{ value }">
             <MonthDetails :month-data="value" @update-income="updateIncome" />
         </DataLoading>
-        <GenericFormModal :fields="fields"></GenericFormModal>
+        <GenericFormModal :fields="fields" @submit="handleSubmit"></GenericFormModal>
     </div>
 </template>
 
@@ -26,14 +26,7 @@ const fields = [
         placeholder: 'Amount',
         validation: z.number().min(1)
     },
-    {
-        name: 'Email',
-        type: 'email',
-        label: 'Email',
-        placeholder: 'Email',
-        // validation: z.string()
-    }
-] satisfies FormFieldArray
+] as const
 
 const monthId = ref('')
 const income = ref(0)
@@ -55,11 +48,12 @@ const updateIncome = (newIncome: number) => {
     })
 }
 
-function onClick() {
+function handleSubmit({ amount, name }: Record<string, any>) {
+    console.log(amount, name)
     createExpense({
         monthId: monthId.value,
-        amount: 100,
-        name: 'test'
+        amount,
+        name
     })
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="emit('submit', form.fields)">
+    <form @submit.prevent="handleSubmit">
         <GenericFormInput v-for="field in castProps.fields" :key="field.name" v-model="form.fields[field.name].value"
             :field="field" :error="form.errors[field.name]" />
         <button type="submit">Submit</button>
@@ -9,8 +9,7 @@
 
 <script setup lang="ts" generic="T extends FormFieldArray">
 import { formService } from '~/services/form.service'
-import type { FormFieldArray } from '~/types/Form'
-
+import type { FormField, FormFieldArray } from '~/types/Form'
 
 const props = defineProps<{
     fields: T
@@ -25,7 +24,7 @@ const emit = defineEmits<{
 
 const form = ref<{
     fields: Record<string, {
-        value: any
+        value: string | number
         hasChanged: boolean
     }>
     errors: Record<string, any>
@@ -67,4 +66,12 @@ watch(() => form.value.fields, (newVal) => {
     }
 
 }, { deep: true })
+
+function handleSubmit() {
+    const values = Object.entries(form.value.fields).reduce((acc, field) => {
+        acc[field[0]] = field[1].value
+        return acc
+    }, {} as Record<string, any>)
+    emit('submit', values)
+}
 </script>
