@@ -1,9 +1,10 @@
 <template>
-    <GenericFormModal :fields="fields" @submit="handleSubmit"></GenericFormModal>
+    <GenericFormModal :fields="fields" :title="title" @submit="handleSubmit"></GenericFormModal>
 </template>
 
 <script setup lang="ts">
 import z from 'zod'
+const title = 'create expense'
 const fields = [
     {
         label: 'Name',
