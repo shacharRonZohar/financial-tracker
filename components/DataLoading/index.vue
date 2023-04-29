@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AppError v-if="error" :retry="emit('refetch')" :error="error" />
+        <AppError v-if="error" @retry="emit('refetch')" :error="error" />
         <AppLoader v-else-if="isLoading" />
         <slot v-else-if="data" :value="data"></slot>
         <NothingFound v-else />
