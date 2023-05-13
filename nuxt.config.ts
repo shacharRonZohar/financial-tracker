@@ -12,4 +12,7 @@ export default defineNuxtConfig({
       include: ['ofetch', 'chunk-Q53DPCWL', 'hookable', 'unctx', 'vue-router'],
     },
   },
+  imports: {
+    dirs: ['composables/**'],
+  },
 })
