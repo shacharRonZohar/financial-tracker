@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ['ofetch', 'chunk-Q53DPCWL', 'hookable', 'unctx', 'vue-router'],
+      include: ['ofetch', 'hookable', 'unctx', 'vue-router'],
     },
   },
   imports: {
