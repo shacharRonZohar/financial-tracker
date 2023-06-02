@@ -18,3 +18,9 @@ export type MonthUpdateBudgetOutput = RouterOutputs['month']['updateIncome']
 
 export type ExpenseCreateInput = RouterInputs['expense']['create']
 export type ExpenseCreateOutput = RouterOutputs['expense']['create']
+
+export type ExpenseUpdateInput = RouterInputs['expense']['update']
+export type ExpenseUpdateOutput = RouterOutputs['expense']['update']
+
+export type ExpenseDeleteInput = RouterInputs['expense']['delete']
+export type ExpenseDeleteOutput = RouterOutputs['expense']['delete']

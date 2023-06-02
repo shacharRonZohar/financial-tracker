@@ -57,6 +57,32 @@ export const expenseRouter = router({
       },
     })
   }),
+  update: publicProcedure
+    .input(
+      z.object({
+        expenseId: z.string(),
+        newName: z.string(),
+        newAmount: z.number().int().min(0),
+      }),
+    )
+    .mutation(({input, ctx}) => {
+      return ctx.prisma.expense.update({
+        where: {
+          id: input.expenseId,
+        },
+        data: {
+          name: input.newName,
+          amount: input.newAmount,
+        },
+      })
+    }),
+  delete: publicProcedure.input(z.string()).mutation(({input, ctx}) => {
+    return ctx.prisma.expense.delete({
+      where: {
+        id: input,
+      },
+    })
+  }),
   // updateIncome: publicProcedure
   //   .input(
   //     z.object({
