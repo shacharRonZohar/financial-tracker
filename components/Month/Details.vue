@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="onClick">Test</button>
     <h1>{{ monthName }}</h1>
     <p>Income: <input type="number" v-model="income" /></p>
     <pre>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</pre>
@@ -20,7 +21,17 @@ interface MonthDetailsEmits {
   (event: 'update-income', newIncome: number): void
 }
 const emit = defineEmits<MonthDetailsEmits>()
+// For Test:
+const newAmount = ref(0)
+const {updateExpense} = useUpdateExpense()
+const onClick = () => {
+  newAmount.value++
 
+  updateExpense({
+    expenseId: 'b9335d78-d00d-498f-b7d9-ec040fafc8f1',
+    amount: newAmount.value,
+  })
+}
 const income = computed({
   get: () => props.monthData.income,
   set: (value) => emit('update-income', value),

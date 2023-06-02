@@ -61,8 +61,8 @@ export const expenseRouter = router({
     .input(
       z.object({
         expenseId: z.string(),
-        newName: z.string(),
-        newAmount: z.number().int().min(0),
+        name: z.string().optional(),
+        amount: z.number().int().min(0).optional(),
       }),
     )
     .mutation(({input, ctx}) => {
@@ -71,8 +71,8 @@ export const expenseRouter = router({
           id: input.expenseId,
         },
         data: {
-          name: input.newName,
-          amount: input.newAmount,
+          name: input.name,
+          amount: input.amount,
         },
       })
     }),
