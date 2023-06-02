@@ -3,7 +3,18 @@
     <button @click="onClick">Test</button>
     <h1>{{ monthName }}</h1>
     <p>Income: <input type="number" v-model="income" /></p>
-    <pre>Expenses: {{ monthData.expenses.length ? monthData.expenses : 'No expenses yet :)' }}</pre>
+    <div>
+      <h1>Expenses:</h1>
+      <GenericList :items="monthData.expenses">
+        <template #default="{item}">
+          <GenericListPreview :item="item">
+            <template #default="{item}">
+              <ExpensePreview :expense="item" />
+            </template>
+          </GenericListPreview>
+        </template>
+      </GenericList>
+    </div>
     <p>Balance: {{ balance }}</p>
   </div>
 </template>
