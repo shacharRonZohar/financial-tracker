@@ -15,7 +15,7 @@ export function useQueryParams<TRoute extends RoutesNamesList>({routeName}: UseQ
     if (!defaultQueryForRoute) {
       return routeQuery.value
     }
-    const query = Object.fromEntries(
+    return Object.fromEntries(
       Object.entries(defaultQueryForRoute).map(([key, value]) => {
         const queryValue = routeQuery.value[key]
         if (queryValue === undefined) {
@@ -28,7 +28,6 @@ export function useQueryParams<TRoute extends RoutesNamesList>({routeName}: UseQ
         return [key, queryValue]
       }),
     )
-    return query
   })
   return query
 }
