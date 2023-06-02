@@ -33,7 +33,11 @@ export const monthRouter = router({
           month: input.monthNum,
         },
         include: {
-          expenses: true,
+          expenses: {
+            orderBy: {
+              createdAt: 'desc',
+            },
+          },
         },
       })
     }),

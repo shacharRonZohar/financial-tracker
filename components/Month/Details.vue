@@ -7,7 +7,7 @@
       <h1>Expenses:</h1>
       <GenericList :items="monthData.expenses">
         <template #default="{item}">
-          <GenericListPreview :item="item">
+          <GenericListPreview :item="item" @delete-item="onRemoveExpense">
             <template #default="{item}">
               <ExpensePreview :expense="item" />
             </template>
@@ -42,6 +42,11 @@ const onClick = () => {
     expenseId: 'b9335d78-d00d-498f-b7d9-ec040fafc8f1',
     amount: newAmount.value,
   })
+}
+const {removeExpense} = useRemoveExpense()
+
+function onRemoveExpense(expenseId: string) {
+  removeExpense(expenseId)
 }
 const income = computed({
   get: () => props.monthData.income,
