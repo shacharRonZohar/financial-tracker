@@ -1,6 +1,6 @@
 export const routeDefaultQueryMap = {
   index: null,
-  month: {
+  'month-index-create': {
     year: new Date().getFullYear(),
     monthNum: new Date().getMonth() + 1,
   },
