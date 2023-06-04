@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["extendedWhereUnique"]
 }
 
 datasource db {
@@ -24,12 +25,13 @@ datasource db {
 
 model MonthData {
   id        String    @id @default(uuid())
-  month     Int
+  month     Int       @unique
   income    Float     @default(0)
   expenses  Expense[]
   updatedAt DateTime  @default(now()) @updatedAt
   createdAt DateTime  @default(now())
   year      Int
+
   // year           Year      @relation(fields: [yearId], references: [id])
   // yearId         String
 }

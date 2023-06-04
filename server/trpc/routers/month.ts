@@ -59,14 +59,16 @@ export const monthRouter = router({
   updateIncome: publicProcedure
     .input(
       z.object({
-        monthId: z.string(),
+        year: z.number().int().min(0).max(9999),
+        monthNum: z.number().int().min(1).max(12),
         newIncome: z.number().int().min(0),
       }),
     )
     .mutation(({input, ctx}) => {
       return ctx.prisma.monthData.update({
         where: {
-          id: input.monthId,
+          year: input.year,
+          month: input.monthNum,
         },
         data: {
           income: input.newIncome,
