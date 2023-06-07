@@ -11,7 +11,7 @@ const props = defineProps<{
   items: TData[]
 }>()
 
-props.items.forEach((item) => {
-  console.log(item.id)
-})
+// props.items.forEach((item) => {
+//   console.log(item.id)
+// })
 </script>

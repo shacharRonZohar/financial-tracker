@@ -46,7 +46,7 @@ devDependencies:
     specifier: ^3.2.2
     version: 3.2.2
   prisma:
-    specifier: ^4.15.0
+    specifier: ^4.5.0
     version: 4.15.0
   sass:
     specifier: ^1.62.1
