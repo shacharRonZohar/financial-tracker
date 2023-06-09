@@ -44,7 +44,7 @@ export const expenseRouter = router({
   //     })
   //   }),
   create: publicProcedure.input(newExpenseSchema).mutation(({input, ctx}) => {
-    console.log('input', input)
+    // console.log('input', input)
     return ctx.prisma.expense.create({
       data: {
         name: input.name,

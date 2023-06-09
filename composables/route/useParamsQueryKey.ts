@@ -1,5 +1,5 @@
 export function useParamsQueryKey(prefix: string[]) {
-  const params = useParams('month-index-year-month')
-  const queryKey = computed(() => [...prefix, {year: params.value.year, monthNum: params.value.month}])
+  const {year, month} = useYearMonthParams()
+  const queryKey = computed(() => [...prefix, {year: year.value, monthNum: month.value}])
   return queryKey
 }

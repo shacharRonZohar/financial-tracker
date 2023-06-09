@@ -32,22 +32,25 @@ interface MonthDetailsEmits {
   (event: 'update-income', newIncome: number): void
 }
 const emit = defineEmits<MonthDetailsEmits>()
+
 // For Test:
 const newAmount = ref(0)
-const {updateExpense} = useUpdateExpense()
+// const {updateExpense} = useUpdateExpense()
 const onClick = () => {
   newAmount.value++
 
-  updateExpense({
-    expenseId: 'b9335d78-d00d-498f-b7d9-ec040fafc8f1',
-    amount: newAmount.value,
-  })
+  // updateExpense({
+  //   expenseId: 'b9335d78-d00d-498f-b7d9-ec040fafc8f1',
+  //   amount: newAmount.value,
+  // })
 }
-const {removeExpense} = useRemoveExpense()
+// End Test
 
+const {removeExpense} = useRemoveExpense()
 function onRemoveExpense(expenseId: string) {
   removeExpense(expenseId)
 }
+
 const income = computed({
   get: () => props.monthData.income,
   set: (value) => emit('update-income', value),
