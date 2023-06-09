@@ -9,7 +9,13 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ['ofetch', 'hookable', 'unctx', 'vue-router'],
+      // include: ['ofetch', 'hookable', 'unctx', 'vue-router'],
+    },
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
     },
   },
   imports: {
