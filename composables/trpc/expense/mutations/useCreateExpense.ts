@@ -7,7 +7,8 @@ export function useCreateExpense() {
   const {$client} = useNuxtApp()
   const queryClient = useQueryClient()
 
-  const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
+  const queryKey = useParamsQueryKey(['month', 'getByNumber'])
+  // const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
 
   const {
     mutateAsync: createExpense,

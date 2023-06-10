@@ -5,7 +5,7 @@ import type {ExpenseDeleteInput} from '~/types/trpc'
 export function useRemoveExpense() {
   const {$client} = useNuxtApp()
   const queryClient = useQueryClient()
-  const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
+  const queryKey = useParamsQueryKey(['month', 'getByNumber'])
 
   const {
     mutateAsync: removeExpense,
@@ -16,6 +16,7 @@ export function useRemoveExpense() {
     onMutate: async (payload) => {
       await queryClient.cancelQueries(queryKey)
       const previousValue = queryClient.getQueryData<MonthDataWithExpenses>(queryKey)
+      console.log(previousValue)
       queryClient.setQueryData<MonthDataWithExpenses>(queryKey, (old) => {
         if (!old) return old
         return {

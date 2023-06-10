@@ -11,7 +11,7 @@ import {MonthDataWithExpenses} from '~/types/MonthData'
 export function useUpdateExpense() {
   const {$client} = useNuxtApp()
   const queryClient = useQueryClient()
-  const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
+  const queryKey = useParamsQueryKey(['month', 'getByNumber'])
 
   const {
     mutateAsync: updateExpense,

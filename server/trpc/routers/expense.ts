@@ -5,7 +5,8 @@ import {publicProcedure, router} from '../trpc'
 const newExpenseSchema = z.object({
   name: z.string(),
   amount: z.number().int().min(0),
-  monthId: z.string(),
+  monthNum: z.number().int().min(1).max(12),
+  year: z.number().int().min(0).max(9999),
 })
 
 export const expenseRouter = router({
@@ -43,15 +44,22 @@ export const expenseRouter = router({
   //       },
   //     })
   //   }),
-  create: publicProcedure.input(newExpenseSchema).mutation(({input, ctx}) => {
+  create: publicProcedure.input(newExpenseSchema).mutation(async ({input, ctx}) => {
     // console.log('input', input)
+    const month = await ctx.prisma.monthData.findFirst({
+      where: {
+        year: input.year,
+        month: input.monthNum,
+      },
+    })
+    if (!month) throw new Error('Month not found')
     return ctx.prisma.expense.create({
       data: {
         name: input.name,
         amount: input.amount,
         MonthData: {
           connect: {
-            id: input.monthId,
+            id: month.id,
           },
         },
       },

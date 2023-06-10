@@ -1,5 +1,8 @@
 <template>
-  <li>{{ expense.name }} - {{ expense.amount }}</li>
+  <li>
+    {{ expense.name }} - {{ expense.amount }}
+    <pre>{{ expense.id }}</pre>
+  </li>
 </template>
 
 <script setup lang="ts">

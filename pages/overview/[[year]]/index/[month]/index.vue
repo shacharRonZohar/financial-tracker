@@ -1,7 +1,8 @@
 <template>
   <div>
-    <GenericDataLoading :data="month" :is-loading="isLoadingMonth" :error="monthError" @refetch="refetchMonth" v-slot="{value}">
+    <GenericDataLoading :data="month" :isLoading="isLoadingMonth" :error="monthError" @refetch="refetchMonth" v-slot="{value}">
       <MonthDetails :month-data="value" @update-income="updateIncome" />
+      <NuxtPage />
     </GenericDataLoading>
   </div>
 </template>
@@ -31,13 +32,4 @@ const updateIncome = (newIncome: number) => {
     income: newIncome,
   })
 }
-
-// const {createExpense} = useCreateExpense()
-// function handleSubmit({amount, name, id}: {amount: number; name: string; id?: string}) {
-//   createExpense({
-//     monthId: monthId.value,
-//     amount,
-//     name,
-//   })
-// }
 </script>

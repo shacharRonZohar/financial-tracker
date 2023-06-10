@@ -7,7 +7,7 @@
       <h1>Expenses:</h1>
       <GenericList :items="monthData.expenses">
         <template #default="{item}">
-          <GenericListPreview :item="item" @delete-item="onRemoveExpense">
+          <GenericListPreview :item="item" @delete-item="onRemoveExpense" @update-item="onUpdateExpense">
             <template #default="{item}">
               <ExpensePreview :expense="item" />
             </template>
@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import {routesNames} from '~/.nuxt/typed-router'
+import {router} from '~/server/trpc/trpc'
 import {MonthDataWithExpenses} from '~/types/MonthData'
 
 interface MonthDetailsProps {
@@ -45,6 +47,19 @@ const onClick = () => {
   // })
 }
 // End Test
+routesNames
+const router = useRouter()
+const route = useRoute('overview-year-index')
+function onUpdateExpense(expenseId: string) {
+  console.log('update expense', expenseId)
+  router.push({
+    name: 'overview-year-index-month-index-edit-id',
+    params: {
+      ...route.params,
+      id: expenseId,
+    },
+  })
+}
 
 const {removeExpense} = useRemoveExpense()
 function onRemoveExpense(expenseId: string) {

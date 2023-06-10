@@ -23,6 +23,10 @@ const emit = defineEmits<{
   (event: 'submit', formData: Record<string, any>): void
 }>()
 
+// if(props.waitForValue) {
+// await props.waitForValue
+// }
+
 const form = ref<{
   fields: Record<
     string,

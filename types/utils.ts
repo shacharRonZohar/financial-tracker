@@ -20,10 +20,14 @@ export type MapToInput<T extends StringIndex> = {
   [P in keyof T as InputPrefix<P extends string ? P : ''>]: T[P]
 }
 
-export type MapToMaybeRefInputs<T extends StringIndex> = MapToMaybeRef<MapToInput<T>>
+export type MapToMaybeRefInputs<T extends StringIndex> = MapToMaybeRef<T>
 
 export type ExtractComponentProps<TComponent> = TComponent extends new () => {
   $props: infer P
 }
   ? P
   : never
+
+export type MapToRef<T> = {
+  [P in keyof T]: Ref<T[P]>
+}
