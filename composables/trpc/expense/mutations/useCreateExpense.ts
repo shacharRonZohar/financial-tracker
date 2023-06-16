@@ -8,7 +8,6 @@ export function useCreateExpense() {
   const queryClient = useQueryClient()
 
   const queryKey = useParamsQueryKey(['month', 'getByNumber'])
-  // const queryKey = useQueryParamsQueryKey(['month', 'getByNumber'])
 
   const {
     mutateAsync: createExpense,

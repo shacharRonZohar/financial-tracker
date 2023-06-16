@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import {Expense} from '~/types/MonthData'
 
-const props = defineProps<{
+defineProps<{
   expense: Expense
 }>()
 </script>

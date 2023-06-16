@@ -1,7 +1,14 @@
+import {RoutesNamesList} from '~/.nuxt/typed-router'
+
 export function useYearMonthParams() {
-  const route = useRoute()
-  // const yearParams = useParams('overview-year')
-  const {params} = toRefs(useRoute('overview-year-index-month'))
+  // nuxt-typed-router has a bug with nested routes, so I do some bad type coercion in this file until it's fixed
+  interface Route {
+    params: {
+      year: string
+      month: string
+    }
+  }
+  const {params} = toRefs(useRoute('overview-year-index-month-index-edit-id') as Route)
 
   const router = useRouter()
 
@@ -9,22 +16,14 @@ export function useYearMonthParams() {
     get: () => Number(params.value.year),
     set: (val) =>
       router.push({
-        name: params.value.month ? 'overview-year-index-month' : 'overview-year',
+        name: (params.value.month ? 'overview-year-index-month' : 'overview-year') as RoutesNamesList,
         params: {...params.value, year: val},
       }),
   })
 
   const month = computed({
     get: () => Number(params.value.month),
-    set: (val) => router.push({name: 'overview-year-index-month', params: {...params.value, month: val}}),
-  })
-
-  onMounted(() => {
-    // if (route.name !== 'month-index-year-month' || (params.value.year && params.value.month)) return
-    // const newParams = {} as typeof params.value
-    // if (!params.value.year) newParams.year = new Date().getFullYear().toString()
-    // if (!params.value.month) newParams.month = (new Date().getMonth() + 1).toString()
-    // router.push({params: newParams})
+    set: (val) => router.push({name: 'overview-year-index-month' as RoutesNamesList, params: {...params.value, month: val}}),
   })
 
   return {

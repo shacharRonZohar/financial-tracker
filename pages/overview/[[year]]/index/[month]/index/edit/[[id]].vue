@@ -5,19 +5,11 @@
 
 <script setup lang="ts">
 import {z} from 'zod'
-import {routesNames} from '~/.nuxt/typed-router'
 import {FormField} from '~/types/Form'
-import {Expense, MonthDataWithExpenses} from '~/types/MonthData'
-import {useQueryClient} from '@tanstack/vue-query'
-import {MonthData} from '@prisma/client'
-// const props = defineProps<{
-//   expense?: Expense
-// }>()
-// routesNames
+import {Expense} from '~/types/MonthData'
+
 const route = useRoute('overview-year-index-month-index-edit-id')
 
-// onMounted(() => {
-// console.log(route.params.id)
 const expense = ref<Expense | null>(null)
 if (route.params.id) {
   const {month} = useGetMonthByParams()

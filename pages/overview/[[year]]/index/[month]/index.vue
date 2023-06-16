@@ -8,11 +8,9 @@
 </template>
 
 <script setup lang="ts">
-
 const income = ref(0)
 
 const {month, monthError, isLoadingMonth, refetchMonth} = useGetMonthByParams()
-
 
 const {updateMonthIncome} = useUpdateMonthIncome({
   newIncome: income,

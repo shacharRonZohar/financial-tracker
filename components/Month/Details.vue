@@ -1,14 +1,13 @@
 <template>
   <div>
-    <button @click="onClick">Test</button>
     <h1>{{ monthName }}</h1>
     <p>Income: <input type="number" v-model="income" /></p>
     <div>
       <h1>Expenses:</h1>
       <GenericList :items="monthData.expenses">
-        <template #default="{item:expense}">
+        <template #default="{item: expense}">
           <GenericListPreview :item="expense" @delete-item="onRemoveExpense" @update-item="onUpdateExpense">
-            <template #default="{item:expenseItem}">
+            <template #default="{item: expenseItem}">
               <ExpensePreview :expense="expenseItem" />
             </template>
           </GenericListPreview>
@@ -20,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-// import {RoutesNamesList} from '~/.nuxt/typed-router'
 import {MonthDataWithExpenses} from '~/types/MonthData'
 
 interface MonthDetailsProps {
@@ -34,29 +32,14 @@ interface MonthDetailsEmits {
 }
 const emit = defineEmits<MonthDetailsEmits>()
 
-// For Test:
-const newAmount = ref(0)
-// const {updateExpense} = useUpdateExpense()
-const onClick = () => {
-  newAmount.value++
-
-  // updateExpense({
-  //   expenseId: 'b9335d78-d00d-498f-b7d9-ec040fafc8f1',
-  //   amount: newAmount.value,
-  // })
-}
-// End Test
-// const test:RoutesNamesList
 const router = useRouter()
-
 interface route {
   params: {
     year: string
     month: string
   }
 }
-
-const route = useRoute()as route // nuxt-typed-router has a bug with nested routes, so I manually made the types for now
+const route = useRoute() as route // nuxt-typed-router has a bug with nested routes, so I manually made the types for now
 
 function onUpdateExpense(expenseId: string) {
   console.log('update expense', expenseId)
