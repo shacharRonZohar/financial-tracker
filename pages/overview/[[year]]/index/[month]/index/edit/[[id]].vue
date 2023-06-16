@@ -28,20 +28,6 @@ if (route.params.id) {
   })
 }
 
-// })
-// const {createExpense} = useCreateExpense()
-// function handleSubmit({amount, name, id}: {amount: number; name: string; id?: string}) {
-//   createExpense({
-//     monthId: monthId.value,
-//     amount,
-//     name,
-//   })
-// }
-
-// const emit = defineEmits<{
-//   (event: 'submit', formData: {amount: number; name: string}): void
-// }>()
-
 const fields = computed<FormField[]>(() => [
   {
     label: 'Name',

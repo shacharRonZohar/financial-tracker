@@ -6,10 +6,10 @@
     <div>
       <h1>Expenses:</h1>
       <GenericList :items="monthData.expenses">
-        <template #default="{item}">
-          <GenericListPreview :item="item" @delete-item="onRemoveExpense" @update-item="onUpdateExpense">
-            <template #default="{item}">
-              <ExpensePreview :expense="item" />
+        <template #default="{item:expense}">
+          <GenericListPreview :item="expense" @delete-item="onRemoveExpense" @update-item="onUpdateExpense">
+            <template #default="{item:expenseItem}">
+              <ExpensePreview :expense="expenseItem" />
             </template>
           </GenericListPreview>
         </template>
@@ -20,8 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import {routesNames} from '~/.nuxt/typed-router'
-import {router} from '~/server/trpc/trpc'
+// import {RoutesNamesList} from '~/.nuxt/typed-router'
 import {MonthDataWithExpenses} from '~/types/MonthData'
 
 interface MonthDetailsProps {
@@ -47,9 +46,18 @@ const onClick = () => {
   // })
 }
 // End Test
-routesNames
+// const test:RoutesNamesList
 const router = useRouter()
-const route = useRoute('overview-year-index')
+
+interface route {
+  params: {
+    year: string
+    month: string
+  }
+}
+
+const route = useRoute()as route // nuxt-typed-router has a bug with nested routes, so I manually made the types for now
+
 function onUpdateExpense(expenseId: string) {
   console.log('update expense', expenseId)
   router.push({

@@ -12,6 +12,6 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (event: 'retry'): void
+  retry:[]
 }>()
 </script>
