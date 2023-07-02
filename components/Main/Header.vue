@@ -1,22 +1,13 @@
 <template>
-  <header>
+  <header class="main-header">
     <h1>Header</h1>
-    <nav>
-      <ul>
-        <li><nuxt-link to="/">Home</nuxt-link></li>
-        <li><nuxt-link :to="`/overview/`">Overview</nuxt-link></li>
-      </ul>
-    </nav>
+    <MainNav />
   </header>
 </template>
-<!--
-<script setup lang="ts">
-const route = useRoute()
-console.log(route)
-const router = useRouter()
-console.log(router)
 
-function goToOverview() {
-  router.push('/overview/')
+<style lang="scss" scoped>
+.main-header {
+  display: flex;
+  justify-content: space-between;
 }
-</script> -->
+</style>

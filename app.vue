@@ -6,6 +6,7 @@
 </template>
 
 <style lang="scss">
+@import '@/styles/base.scss';
 .app-container {
   display: grid;
   grid-template-columns: minmax(20px, 1fr) minmax(200px, 6fr) minmax(20px, 1fr);
