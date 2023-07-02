@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <GenericDataLoadingError v-if="error" @retry="emit('refetch')" :error="error" />
-    <GenericDataLoadingLoader v-else-if="isLoading" />
-    <slot v-else-if="data" :value="data"></slot>
-    <GenericDataLoadingNothingFound v-else />
-  </div>
+  <!-- <div> -->
+  <GenericDataLoadingError v-if="error" @retry="emit('refetch')" :error="error" />
+  <GenericDataLoadingLoader v-else-if="isLoading" />
+  <slot v-else-if="data" :value="data"></slot>
+  <GenericDataLoadingNothingFound v-else />
+  <!-- </div> -->
 </template>
 
 <!-- This type extension is meaningless, but nuxt wasent happy without an extends for some reason -->

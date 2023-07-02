@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <GenericDataLoading :data="month" :isLoading="isLoadingMonth" :error="monthError" @refetch="refetchMonth" v-slot="{value}">
-      <MonthDetails :month-data="value" @update-income="updateIncome" />
-      <NuxtPage />
-    </GenericDataLoading>
-  </div>
+  <!-- <div> -->
+  <GenericDataLoading :data="month" :isLoading="isLoadingMonth" :error="monthError" @refetch="refetchMonth" v-slot="{value}">
+    <MonthDetails :month-data="value" @update-income="updateIncome" />
+    <NuxtPage />
+  </GenericDataLoading>
+  <!-- </div> -->
 </template>
 
 <script setup lang="ts">

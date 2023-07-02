@@ -12,8 +12,9 @@ const {year, month} = useYearMonthParams()
 
 <style lang="scss" scoped>
 .main-content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  // flex-direction: column;
+  grid-template-rows: 1fr 1fr 10fr;
   gap: 2rem;
 }
 </style>
