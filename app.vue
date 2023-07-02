@@ -9,10 +9,11 @@
 @import '@/styles/base.scss';
 .app-container {
   display: grid;
-  grid-template-columns: minmax(20px, 1fr) minmax(200px, 6fr) minmax(20px, 1fr);
-
+  grid-template: 100px 1fr / minmax(20px, 1fr) minmax(200px, 6fr) minmax(20px, 1fr);
+  gap: 1rem;
   > * {
     grid-column: 2;
   }
+  min-height: 100dvh;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <!-- <SaveExpenseModal @submit="emit('submit', $event)" /> -->
-  <GenericForm :fields="fields" :waitForValue="expense" @submit="onSubmit"></GenericForm>
+  <GenericForm :fields="fields" @submit="onSubmit"></GenericForm>
 </template>
 
 <script setup lang="ts">

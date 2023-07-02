@@ -52,6 +52,13 @@ function changeModelValue(val: TA) {
 <style lang="scss" scoped>
 .slider-selector-container {
   display: flex;
-  gap: 5px;
+  // gap: 5px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  > *:not(:first-child):not(:last-child) {
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 </style>
