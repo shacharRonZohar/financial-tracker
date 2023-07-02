@@ -1,21 +1,22 @@
 <template>
-  <div>
-    <div v-for="(year, idx) in years" :key="year" @click="changeYear(year)">{{ year }}</div>
-  </div>
+  <GenericSliderSelector v-model="year" :values="years" />
 </template>
 
 <script setup lang="ts">
-const years = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032]
+import {getYears} from '~/services/utilService'
 
 const props = defineProps<{modelValue: number}>()
 const emit = defineEmits<{(event: 'update:modelValue', newYear: number): void}>()
+
+const years = getFormattedYears()
 
 const year = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value),
 })
 
-function changeYear(newYear: number) {
-  year.value = newYear
+function getFormattedYears() {
+  const years = getYears()
+  return years.map((year) => ({visual: year.toString(), actual: year}))
 }
 </script>
