@@ -2,7 +2,9 @@
   <!-- <div> -->
   <GenericDataLoading :data="month" :isLoading="isLoadingMonth" :error="monthError" @refetch="refetchMonth" v-slot="{value}">
     <MonthDetails :month-data="value" @update-income="updateIncome" />
-    <NuxtPage />
+    <Teleport to=".app-container">
+      <NuxtPage />
+    </Teleport>
   </GenericDataLoading>
   <!-- </div> -->
 </template>
@@ -21,4 +23,6 @@ const updateIncome = (newIncome: number) => {
     income: newIncome,
   })
 }
+const route = useRoute()
+console.log(route.params, route.name)
 </script>

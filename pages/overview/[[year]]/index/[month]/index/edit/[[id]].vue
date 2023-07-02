@@ -1,6 +1,7 @@
 <template>
-  <!-- <SaveExpenseModal @submit="emit('submit', $event)" /> -->
-  <GenericForm :fields="fields" @submit="onSubmit"></GenericForm>
+  <div class="edit-expense-modal-container" @click="goBack">
+    <GenericForm @click.stop :fields="fields" @submit="onSubmit"></GenericForm>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -48,6 +49,7 @@ function onSubmit(formData: Record<string, any>) {
       name: formData.name,
       amount: formData.amount,
     })
+    goBack()
     return
   }
   createExpense({
@@ -56,5 +58,33 @@ function onSubmit(formData: Record<string, any>) {
     name: formData.name,
     amount: formData.amount,
   })
+
+  goBack()
+}
+
+const router = useRouter()
+function goBack() {
+  router.push({
+    path: `/overview/${route.params.year}/${route.params.month}`,
+  })
 }
 </script>
+
+<style lang="scss" scoped>
+.edit-expense-modal-container {
+  // position: absolute;
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+
+  form {
+    background-color: gray;
+    border: 1px solid black;
+    padding: 2rem;
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="preview-item">
     <slot :item="item"></slot>
     <span>
       <button @click="onUpdate">Update</button>
@@ -33,3 +33,15 @@ function onDelete() {
   emit('delete-item', props.item.id)
 }
 </script>
+
+<style lang="scss" scoped>
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+</style>

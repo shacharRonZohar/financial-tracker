@@ -1,7 +1,6 @@
 <template>
-  <li>
-    {{ expense.name }} - {{ expense.amount }}
-    <pre>{{ expense.id }}</pre>
+  <li class="expense-preview">
+    <span class="expense-name">{{ expense.name }}</span> - <span class="expense-amount">{{ expense.amount }}</span>
   </li>
 </template>
 

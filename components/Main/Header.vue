@@ -7,6 +7,7 @@
 
 <style lang="scss" scoped>
 .main-header {
+  grid-row: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
